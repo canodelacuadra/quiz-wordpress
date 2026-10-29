@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quizzes de WordPress · Autoevaluación</title>
+<meta name="description" content="Quizzes interactivos de autoevaluación sobre WordPress: uso básico, el tema GeneratePress, plugins con Contact Form 7 y los archivos básicos (wp-config.php, wp-content y la base de datos). Feedback inmediato y sin registro.">
+<meta name="theme-color" content="#059669">
+<style>
+:root{
+  --e50:#ecfdf5;--e100:#d1fae5;--e200:#a7f3d0;--e500:#10b981;--e600:#059669;--e700:#047857;--e800:#065f46;
+  --a50:#fffbeb;--a500:#f59e0b;--a800:#92400e;
+  --b50:#eff6ff;--b500:#3b82f6;--b700:#1d4ed8;
+  --v50:#f5f3ff;--v500:#8b5cf6;--v700:#6d28d9;
+  --s50:#fafaf9;--s100:#f5f5f4;--s200:#e7e5e4;--s300:#d6d3d1;--s400:#a8a29e;--s500:#78716c;--s600:#57534e;--s700:#44403c;--s800:#292524;--s900:#1c1917;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--s900);
+  background:linear-gradient(180deg,var(--s50) 0%,#fff 40%,rgba(236,253,245,.7) 100%);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+.container{width:100%;max-width:64rem;margin:0 auto;padding-left:1rem;padding-right:1rem}
+a{color:inherit}
+
+.hero{padding:3.5rem 0 1rem;text-align:center}
+.marca{
+  display:inline-flex;align-items:center;gap:.625rem;
+  padding:.5rem .875rem;border-radius:9999px;
+  background:#fff;border:1px solid var(--s200);
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+  font-size:.8125rem;font-weight:600;color:var(--s600);
+}
+.marca .logo{
+  display:flex;height:1.75rem;width:1.75rem;align-items:center;justify-content:center;
+  border-radius:.5rem;background:var(--e600);color:#fff;
+}
+.marca .logo svg{width:1rem;height:1rem}
+.ceja{margin-top:1.75rem;font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--e700)}
+.titulo{margin-top:.5rem;font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--s900)}
+.titulo span{color:var(--e700)}
+@media(min-width:640px){.titulo{font-size:3rem}}
+.intro{margin:1rem auto 0;max-width:38rem;font-size:1rem;line-height:1.7;color:var(--s600)}
+@media(min-width:640px){.intro{font-size:1.125rem}}
+.estadisticas{margin-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.chip{
+  display:inline-flex;align-items:center;gap:.375rem;
+  border-radius:9999px;background:#fff;border:1px solid var(--s200);
+  padding:.375rem .75rem;font-size:.8125rem;font-weight:500;color:var(--s700);
+}
+.chip svg{width:.875rem;height:.875rem;color:var(--e600)}
+
+.quizzes{padding:2.5rem 0 1rem}
+.rejilla{display:grid;gap:1rem}
+@media(min-width:720px){.rejilla{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.quiz{
+  position:relative;display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--s200);border-radius:1.5rem;
+  padding:1.5rem;text-decoration:none;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  overflow:hidden;
+}
+.quiz::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:4px;
+  background:var(--acento,var(--e500));
+  opacity:0;transition:opacity .2s ease;
+}
+.quiz:hover{transform:translateY(-4px);border-color:var(--s300);box-shadow:0 18px 30px -12px rgba(28,25,23,.18)}
+.quiz:hover::before{opacity:1}
+.quiz:focus-visible{outline:2px solid var(--e600);outline-offset:3px}
+.quiz-icono{
+  display:flex;height:3rem;width:3rem;align-items:center;justify-content:center;
+  border-radius:1rem;background:var(--fondo-icono,var(--e100));color:var(--acento,var(--e700));
+}
+.quiz-icono svg{width:1.5rem;height:1.5rem}
+.quiz h2{margin-top:1.125rem;font-size:1.125rem;font-weight:700;letter-spacing:-.01em;color:var(--s900)}
+.quiz p{margin-top:.5rem;font-size:.9rem;line-height:1.6;color:var(--s600);flex:1}
+.quiz-meta{
+  margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.5rem;
+  padding-top:1rem;border-top:1px solid var(--s100);
+}
+.etiqueta{
+  display:inline-flex;align-items:center;gap:.3rem;
+  border-radius:9999px;background:var(--s100);
+  padding:.25rem .625rem;font-size:.75rem;font-weight:600;color:var(--s600);
+}
+.etiqueta svg{width:.75rem;height:.75rem}
+.quiz-cta{
+  margin-top:1.25rem;display:inline-flex;align-items:center;justify-content:space-between;
+  width:100%;padding:.75rem 1rem;border-radius:.875rem;
+  background:var(--fondo-icono,var(--e50));color:var(--acento,var(--e700));
+  font-size:.875rem;font-weight:700;
+  transition:background .2s ease,color .2s ease;
+}
+.quiz-cta svg{width:1rem;height:1rem;transition:transform .2s ease}
+.quiz:hover .quiz-cta svg{transform:translateX(3px)}
+
+.quiz--basico{--acento:var(--b700);--fondo-icono:var(--b50)}
+.quiz--generatepress{--acento:var(--e700);--fondo-icono:var(--e50)}
+.quiz--plugins{--acento:var(--v700);--fondo-icono:var(--v50)}
+.quiz--archivos{--acento:var(--a800);--fondo-icono:var(--a50)}
+
+.info{margin-top:1.5rem;background:#fff;border:1px solid var(--s200);border-radius:1.5rem;padding:1.5rem}
+.info h2{font-size:1rem;font-weight:700;color:var(--s900)}
+.info-rejilla{margin-top:1rem;display:grid;gap:.75rem}
+@media(min-width:640px){.info-rejilla{grid-template-columns:repeat(3,1fr)}}
+.info-item{display:flex;align-items:flex-start;gap:.75rem}
+.info-item svg{width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--e600);margin-top:.125rem}
+.info-item strong{display:block;font-size:.875rem;color:var(--s800)}
+.info-item span{display:block;margin-top:.125rem;font-size:.8125rem;line-height:1.5;color:var(--s500)}
+
+.aviso{
+  margin-top:1.5rem;display:flex;align-items:flex-start;gap:.75rem;
+  background:var(--a50);border:1px solid #fde68a;border-radius:1rem;
+  padding:1rem 1.25rem;font-size:.875rem;line-height:1.6;color:#92400e;
+}
+.aviso svg{width:1.25rem;height:1.25rem;flex-shrink:0;margin-top:.125rem}
+
+footer{margin-top:auto;padding:2rem 0;text-align:center;font-size:.8125rem;color:var(--s400)}
+footer strong{color:var(--s600)}
+
+@media(prefers-reduced-motion:reduce){
+  .quiz,.quiz-cta svg{transition:none}
+  .quiz:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero container">
+  <span class="marca">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+    </span>
+    WordPress · Autoevaluación
+  </span>
+
+  <p class="ceja">Elige tu quiz</p>
+  <h1 class="titulo">Pon a prueba lo que<br><span>has aprendido</span></h1>
+  <p class="intro">
+    Cuatro quizzes interactivos para repasar WordPress desde lo más básico
+    hasta la personalización con GeneratePress, los formularios de contacto
+    y la estructura de archivos. Respuesta inmediata y sin necesidad de registrarte.
+  </p>
+
+  <div class="estadisticas">
+    <span class="chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+      4 quizzes
+    </span>
+    <span class="chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      65 preguntas en total
+    </span>
+    <span class="chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      Corrección al instante
+    </span>
+  </div>
+</header>
+
+<main class="quizzes container">
+  <div class="rejilla">
+
+    <a class="quiz quiz--basico" href="quiz-wordpress-basico.html">
+      <span class="quiz-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+      </span>
+      <h2>WordPress Básico</h2>
+      <p>Páginas y entradas, el editor de bloques, menús, temas y roles de usuario.</p>
+      <div class="quiz-meta">
+        <span class="etiqueta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          20 preguntas
+        </span>
+        <span class="etiqueta">Nivel inicial</span>
+      </div>
+      <span class="quiz-cta">
+        Empezar el quiz
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="quiz quiz--generatepress" href="quiz-generatepress.html">
+      <span class="quiz-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+      </span>
+      <h2>Tema GeneratePress</h2>
+      <p>Temas, Personalizador, identidad visual, logotipo, menús y diseño responsive.</p>
+      <div class="quiz-meta">
+        <span class="etiqueta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          15 preguntas
+        </span>
+        <span class="etiqueta">Personalización</span>
+      </div>
+      <span class="quiz-cta">
+        Empezar el quiz
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="quiz quiz--plugins" href="quiz-plugins-contact-form-7.html">
+      <span class="quiz-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+      </span>
+      <h2>Plugins y Contact Form 7</h2>
+      <p>Qué es un plugin, cómo instalarlo, shortcodes y formularios de contacto.</p>
+      <div class="quiz-meta">
+        <span class="etiqueta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          15 preguntas
+        </span>
+        <span class="etiqueta">Formularios</span>
+      </div>
+      <span class="quiz-cta">
+        Empezar el quiz
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="quiz quiz--archivos" href="quiz-archivos-basicos.html">
+      <span class="quiz-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M2 10h20"/></svg>
+      </span>
+      <h2>Archivos básicos de WordPress</h2>
+      <p>wp-config.php, wp-content, la base de datos y las copias de seguridad.</p>
+      <div class="quiz-meta">
+        <span class="etiqueta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          15 preguntas
+        </span>
+        <span class="etiqueta">Estructura y base de datos</span>
+      </div>
+      <span class="quiz-cta">
+        Empezar el quiz
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+  </div>
+
+  <section class="info" aria-labelledby="como-funciona">
+    <h2 id="como-funciona">¿Cómo funcionan los quizzes?</h2>
+    <div class="info-rejilla">
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <div>
+          <strong>Feedback inmediato</strong>
+          <span>Cada respuesta se corrige al momento con su explicación.</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <div>
+          <strong>Repite sin límite</strong>
+          <span>Puedes volver a intentarlo tantas veces como quieras.</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <div>
+          <strong>Sin registro</strong>
+          <span>No necesitas cuenta ni instalar nada. Funciona en el navegador.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="aviso">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16v-4"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="10"/></svg>
+    <p><strong>Consejo:</strong> antes de empezar, repasa tus apuntes y las prácticas. Al terminar, lee las explicaciones de las preguntas falladas: ahí está el aprendizaje.</p>
+  </div>
+</main>
+
+<footer class="container">
+  <p><strong>Quizzes de WordPress</strong> · Recurso didáctico para el aula</p>
+</footer>
+
+</body>
+</html>
