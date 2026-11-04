@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quizzes de WordPress · Autoevaluación</title>
-<meta name="description" content="Quizzes interactivos de autoevaluación sobre WordPress: uso básico, el tema GeneratePress, plugins con Contact Form 7 y los archivos básicos (wp-config.php, wp-content y la base de datos). Feedback inmediato y sin registro.">
+<meta name="description" content="Quizzes interactivos de autoevaluación sobre WordPress: uso básico, el tema GeneratePress, plugins con Contact Form 7, los archivos básicos (wp-config.php, wp-content y la base de datos), WordPress sobre XAMPP y un repaso final de todo el curso. Feedback inmediato y sin registro.">
 <meta name="theme-color" content="#059669">
 <style>
 :root{
@@ -12,6 +12,8 @@
   --a50:#fffbeb;--a500:#f59e0b;--a800:#92400e;
   --b50:#eff6ff;--b500:#3b82f6;--b700:#1d4ed8;
   --v50:#f5f3ff;--v500:#8b5cf6;--v700:#6d28d9;
+  --c50:#ecfeff;--c700:#0e7490;
+  --r50:#fff1f2;--r700:#be123c;
   --s50:#fafaf9;--s100:#f5f5f4;--s200:#e7e5e4;--s300:#d6d3d1;--s400:#a8a29e;--s500:#78716c;--s600:#57534e;--s700:#44403c;--s800:#292524;--s900:#1c1917;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -104,6 +106,9 @@ a{color:inherit}
 .quiz--generatepress{--acento:var(--e700);--fondo-icono:var(--e50)}
 .quiz--plugins{--acento:var(--v700);--fondo-icono:var(--v50)}
 .quiz--archivos{--acento:var(--a800);--fondo-icono:var(--a50)}
+.quiz--repaso{--acento:var(--c700);--fondo-icono:var(--c50)}
+.quiz--xampp{--acento:var(--r700);--fondo-icono:var(--r50)}
+@media(min-width:720px){.quiz--repaso,.quiz--xampp{grid-column:1/-1}}
 
 .info{margin-top:1.5rem;background:#fff;border:1px solid var(--s200);border-radius:1.5rem;padding:1.5rem}
 .info h2{font-size:1rem;font-weight:700;color:var(--s900)}
@@ -143,19 +148,20 @@ footer strong{color:var(--s600)}
   <p class="ceja">Elige tu quiz</p>
   <h1 class="titulo">Pon a prueba lo que<br><span>has aprendido</span></h1>
   <p class="intro">
-    Cuatro quizzes interactivos para repasar WordPress desde lo más básico
-    hasta la personalización con GeneratePress, los formularios de contacto
-    y la estructura de archivos. Respuesta inmediata y sin necesidad de registrarte.
+    Seis quizzes interactivos para repasar WordPress desde lo más básico
+    hasta la personalización con GeneratePress, los formularios de contacto,
+    la estructura de archivos, la instalación local con XAMPP y un repaso
+    final de todo el curso. Respuesta inmediata y sin necesidad de registrarte.
   </p>
 
   <div class="estadisticas">
     <span class="chip">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
-      4 quizzes
+      6 quizzes
     </span>
     <span class="chip">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      65 preguntas en total
+      100 preguntas en total
     </span>
     <span class="chip">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -166,6 +172,25 @@ footer strong{color:var(--s600)}
 
 <main class="quizzes container">
   <div class="rejilla">
+
+    <a class="quiz quiz--repaso" href="quiz-repaso-wordpress.html">
+      <span class="quiz-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+      </span>
+      <h2>Repaso final de WordPress</h2>
+      <p>Un examen global del curso: instalación, ajustes generales, usuarios y roles, entradas y páginas, apariencia, plugins, medios y mantenimiento.</p>
+      <div class="quiz-meta">
+        <span class="etiqueta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          20 preguntas
+        </span>
+        <span class="etiqueta">Repaso completo</span>
+      </div>
+      <span class="quiz-cta">
+        Empezar el repaso
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
 
     <a class="quiz quiz--basico" href="quiz-wordpress-basico.html">
       <span class="quiz-icono" aria-hidden="true">
@@ -236,6 +261,25 @@ footer strong{color:var(--s600)}
           15 preguntas
         </span>
         <span class="etiqueta">Estructura y base de datos</span>
+      </div>
+      <span class="quiz-cta">
+        Empezar el quiz
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="quiz quiz--xampp" href="quiz-wordpress-xampp-ifcd0210.html">
+      <span class="quiz-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg>
+      </span>
+      <h2>WordPress sobre XAMPP</h2>
+      <p>El entorno local: Apache, MySQL/MariaDB y PHP, la instalación de WordPress en localhost y el acceso a phpMyAdmin.</p>
+      <div class="quiz-meta">
+        <span class="etiqueta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          15 preguntas
+        </span>
+        <span class="etiqueta">Entorno local</span>
       </div>
       <span class="quiz-cta">
         Empezar el quiz
