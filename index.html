@@ -95,6 +95,7 @@ a{color:inherit}
   padding:.25rem .625rem;font-size:.75rem;font-weight:600;color:var(--s600);
 }
 .fila-preguntas{font-size:.8125rem;font-weight:600;color:var(--s500);white-space:nowrap}
+.fila-fecha{font-size:.75rem;font-weight:600;color:var(--s400);white-space:nowrap;font-variant-numeric:tabular-nums}
 .fila-flecha{
   display:flex;height:2.25rem;width:2.25rem;align-items:center;justify-content:center;
   border-radius:9999px;background:var(--s100);color:var(--s600);
@@ -116,7 +117,7 @@ a{color:inherit}
   .fila-icono{height:2.5rem;width:2.5rem;border-radius:.75rem}
   .fila-icono svg{width:1.2rem;height:1.2rem}
   .fila-desc{white-space:normal}
-  .fila-datos{grid-column:1 / -1;justify-content:space-between}
+  .fila-datos{grid-column:1 / -1;justify-content:space-between;flex-wrap:wrap}
   .fila:hover{transform:none}
 }
 
@@ -186,24 +187,6 @@ footer strong{color:var(--s600)}
   <ol class="lista">
 
     <li>
-      <a class="fila fila--basico" href="quiz-wordpress-basico.html">
-        <span class="fila-num" aria-hidden="true"></span>
-        <span class="fila-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
-        </span>
-        <span class="fila-cuerpo">
-          <span class="fila-titulo">WordPress Básico</span>
-          <span class="fila-desc">Páginas y entradas, el editor de bloques, menús, temas y roles de usuario.</span>
-        </span>
-        <span class="fila-datos">
-          <span class="etiqueta">Nivel inicial</span>
-          <span class="fila-preguntas">20 preguntas</span>
-          <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-        </span>
-      </a>
-    </li>
-
-    <li>
       <a class="fila fila--xampp" href="quiz-wordpress-xampp-ifcd0210.html">
         <span class="fila-num" aria-hidden="true"></span>
         <span class="fila-icono" aria-hidden="true">
@@ -215,6 +198,7 @@ footer strong{color:var(--s600)}
         </span>
         <span class="fila-datos">
           <span class="etiqueta">Entorno local</span>
+          <time class="fila-fecha" datetime="2026-10-23" aria-label="Añadido el 23 de octubre de 2026">23 oct 2026</time>
           <span class="fila-preguntas">15 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
@@ -222,18 +206,19 @@ footer strong{color:var(--s600)}
     </li>
 
     <li>
-      <a class="fila fila--archivos" href="quiz-archivos-basicos.html">
+      <a class="fila fila--basico" href="quiz-wordpress-basico.html">
         <span class="fila-num" aria-hidden="true"></span>
         <span class="fila-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M2 10h20"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
         </span>
         <span class="fila-cuerpo">
-          <span class="fila-titulo">Archivos básicos de WordPress</span>
-          <span class="fila-desc">wp-config.php, wp-content, la base de datos y las copias de seguridad.</span>
+          <span class="fila-titulo">WordPress Básico</span>
+          <span class="fila-desc">Páginas y entradas, el editor de bloques, menús, temas y roles de usuario.</span>
         </span>
         <span class="fila-datos">
-          <span class="etiqueta">Estructura y BD</span>
-          <span class="fila-preguntas">15 preguntas</span>
+          <span class="etiqueta">Nivel inicial</span>
+          <time class="fila-fecha" datetime="2026-10-27" aria-label="Añadido el 27 de octubre de 2026">27 oct 2026</time>
+          <span class="fila-preguntas">20 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
       </a>
@@ -251,6 +236,7 @@ footer strong{color:var(--s600)}
         </span>
         <span class="fila-datos">
           <span class="etiqueta">Personalización</span>
+          <time class="fila-fecha" datetime="2026-10-28" aria-label="Añadido el 28 de octubre de 2026">28 oct 2026</time>
           <span class="fila-preguntas">15 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
@@ -269,6 +255,26 @@ footer strong{color:var(--s600)}
         </span>
         <span class="fila-datos">
           <span class="etiqueta">Formularios</span>
+          <time class="fila-fecha" datetime="2026-10-29" aria-label="Añadido el 29 de octubre de 2026">29 oct 2026</time>
+          <span class="fila-preguntas">15 preguntas</span>
+          <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a class="fila fila--archivos" href="quiz-archivos-basicos.html">
+        <span class="fila-num" aria-hidden="true"></span>
+        <span class="fila-icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M2 10h20"/></svg>
+        </span>
+        <span class="fila-cuerpo">
+          <span class="fila-titulo">Archivos básicos de WordPress</span>
+          <span class="fila-desc">wp-config.php, wp-content, la base de datos y las copias de seguridad.</span>
+        </span>
+        <span class="fila-datos">
+          <span class="etiqueta">Estructura y BD</span>
+          <time class="fila-fecha" datetime="2026-10-29" aria-label="Añadido el 29 de octubre de 2026">29 oct 2026</time>
           <span class="fila-preguntas">15 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
@@ -287,6 +293,7 @@ footer strong{color:var(--s600)}
         </span>
         <span class="fila-datos">
           <span class="etiqueta">Repaso básico</span>
+          <time class="fila-fecha" datetime="2026-11-04" aria-label="Añadido el 4 de noviembre de 2026">4 nov 2026</time>
           <span class="fila-preguntas">20 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
@@ -305,6 +312,7 @@ footer strong{color:var(--s600)}
         </span>
         <span class="fila-datos">
           <span class="etiqueta">Tienda online</span>
+          <time class="fila-fecha" datetime="2026-11-05" aria-label="Añadido el 5 de noviembre de 2026">5 nov 2026</time>
           <span class="fila-preguntas">18 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
