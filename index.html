@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tests de autoevaluación de WordPress</title>
-<meta name="description" content="Diez tests interactivos de autoevaluación sobre WordPress: uso básico, GeneratePress, Contact Form 7, archivos básicos, XAMPP, WooCommerce, instalación con Local, pedidos y logística, pagos e impuestos con WooCommerce y repaso de WordPress básico. 178 preguntas con feedback inmediato y sin registro.">
+<meta name="description" content="Once tests interactivos de autoevaluación sobre WordPress: uso básico, GeneratePress, Contact Form 7, archivos básicos, XAMPP, WooCommerce, instalación con Local, pedidos y logística, pagos e impuestos, marketing básico con WooCommerce y repaso de WordPress básico. 198 preguntas con feedback inmediato y sin registro.">
 <meta name="theme-color" content="#059669">
 <style>
 :root{
@@ -18,6 +18,7 @@
   --i50:#eef2ff;--i700:#4338ca;
   --t50:#f0fdfa;--t700:#0f766e;
   --f50:#fdf4ff;--f700:#a21caf;
+  --m50:#fff7ed;--m700:#c2410c;
   --s50:#fafaf9;--s100:#f5f5f4;--s200:#e7e5e4;--s300:#d6d3d1;--s400:#a8a29e;--s500:#78716c;--s600:#57534e;--s700:#44403c;--s800:#292524;--s900:#1c1917;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -113,6 +114,7 @@ a{color:inherit}
 .fila--localwp{--acento:var(--i700);--fondo-icono:var(--i50)}
 .fila--pedidos{--acento:var(--t700);--fondo-icono:var(--t50)}
 .fila--pagos{--acento:var(--f700);--fondo-icono:var(--f50)}
+.fila--marketing{--acento:var(--m700);--fondo-icono:var(--m50)}
 
 @media(max-width:640px){
   .fila{grid-template-columns:1.75rem 2.5rem minmax(0,1fr);row-gap:.625rem;padding:.875rem}
@@ -152,7 +154,7 @@ footer strong{color:var(--s600)}
     </p>
     <h1 class="titulo">Tests de autoevaluación de <span>WordPress</span></h1>
   </div>
-  <p class="meta">10 tests · 178 preguntas · corrección al instante</p>
+  <p class="meta">11 tests · 198 preguntas · corrección al instante</p>
 </header>
 
 <main class="quizzes container">
@@ -342,6 +344,25 @@ footer strong{color:var(--s600)}
         <span class="fila-datos">
           <span class="etiqueta">Pagos e impuestos</span>
           <time class="fila-fecha" datetime="2026-11-06" aria-label="Añadido el 6 de noviembre de 2026">6 nov 2026</time>
+          <span class="fila-preguntas">20 preguntas</span>
+          <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </span>
+      </a>
+    </li>
+
+    <li>
+      <a class="fila fila--marketing" href="quiz-woocommerce-marketing-basico.html">
+        <span class="fila-num" aria-hidden="true"></span>
+        <span class="fila-icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+        </span>
+        <span class="fila-cuerpo">
+          <span class="fila-titulo">Marketing básico en WooCommerce</span>
+          <span class="fila-desc">Precios rebajados, cupones, ventas dirigidas y cruzadas, productos relacionados, destacados y más vendidos sin plugins.</span>
+        </span>
+        <span class="fila-datos">
+          <span class="etiqueta">Marketing básico</span>
+          <time class="fila-fecha" datetime="2026-11-09" aria-label="Añadido el 9 de noviembre de 2026">9 nov 2026</time>
           <span class="fila-preguntas">20 preguntas</span>
           <span class="fila-flecha" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </span>
